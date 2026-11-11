@@ -1,0 +1,2216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="icon" type="image/png" href="sandbox%20logo.png">
+    <style>
+    body {
+  -webkit-user-select: none; 
+  user-select: none;       
+}
+
+    .action-footer {
+  pointer-events: auto;
+  align-self: center;
+  margin-bottom: 10px;
+}
+
+
+	html, body {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* Internet Explorer/Edge */
+  user-select: none;         /* Standard syntax */
+}
+
+
+.action-footer {
+  margin-top: auto;
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  justify-content: center;
+ 
+}
+    .container {
+  position: relative;
+  display: inline-block; /* or fit-content / fixed dimensions matching the canvas */
+  width: 100%;
+  color: white;
+  height: 100%;
+}
+
+
+canvas {
+  /*display: block;*/
+}
+
+
+.overlay {
+	color: black;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  justify-content: center !important;
+}
+
+
+  input[type="checkbox"] {
+    display: none !important;
+  }
+
+
+        body {
+            margin: 0;
+            
+  background: linear-gradient(180deg, white, #ddd);
+        }
+        #topDiv {
+                width: 100%;
+            border: 0px solid #ddd;
+            border-radius: px;
+            color: white;
+       
+            background: black;
+        }
+        input {
+            width: 7%;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+           
+       
+           
+        }
+        button {
+            width: 13%;
+            border: 3px solid #ddd;
+            border-radius: 4px;
+           
+       
+           
+        }
+       /* #fullscrean {
+            width: 30px;
+            height: 30px;
+            border: 3px solid #ddd;
+            border-radius: 4px;
+            display: inline-flex;
+    justify-content: center;
+    align-items: center;
+       
+           
+        }*/
+        .selected {
+           
+            border: 3px solid blue;
+        }
+        canvas {
+            /*height: 200px;
+            width: 100%;*/
+        }
+
+
+
+#conrolCenter > button {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: none;
+}
+
+
+#conrolCenter {
+  display: none;
+}
+
+
+#conrolCenter > button {
+  width: auto;
+  margin: 0;
+  padding: 8px 4px;
+  border-radius: 500px;
+  font-size: clamp(0.65rem, 1.2vw, 1.2rem);
+  overflow-wrap: anywhere;
+}
+
+
+#conrolCenter > .switch,
+#conrolCenter > #sliderLabel,
+#conrolCenter > label:empty {
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+.gone {
+  display: none;
+}
+#drawingBtns {
+  display: flex;    
+  width: 100%;      
+  gap: 10px;    
+ 
+            border: 0px solid #ddd;
+}
+
+
+#drawingBtns .drawing {
+  flex: 1;            
+  padding: 12px;    
+}
+        input[type="checkbox"],
+label {
+  margin: 1 !important;
+  padding: 0 !important;
+  box-sizing: border-box;
+}
+input[type="checkbox"],
+label {
+  margin: 1 !important;
+  padding: 0 !important;
+  box-sizing: border-box !important;
+  vertical-align: middle !important;
+}
+
+
+
+
+label {
+  display: inline-flex !important;
+  align-items: center !important;
+  line-height: 1 !important;
+  gap: 4px !important;
+}
+
+
+input[type="checkbox"] {
+  display: inline-block !important;
+  width: 13px !important;
+  height: 13px !important;
+  cursor: pointer !important;
+}
+
+
+#elements {
+   
+  justify-content: center;
+  width: 100%;
+ 
+}
+
+#page {
+
+  justify-content: center;
+  width: 100%;
+  color: black;
+  }
+
+
+.elementBtn {
+
+
+  background: rgba(0, 0, 0, 0.65);
+  justify-self: center !important;
+    margin: 30px;
+    width: 60px;
+   
+}
+
+
+#elementTitle {
+   
+    font-size: 3rem;
+  justify-self: center;
+} 
+#elementName {
+   
+    font-size: 2rem;
+  justify-self: center;
+}
+
+
+#elBtn {
+   
+  background: rgba(0, 0, 255, 0.35);
+}
+
+#page {
+	width: 100%;
+    height: 100%;
+    
+  
+  justify-content: center !important;
+}
+
+h1 {
+
+  justify-self: center;
+  font-family: 'Comfortaa', sans-serif;
+  font-weight: 1400;
+  letter-spacing: 0.5px;
+  
+    font-size: 3rem;
+}
+#games {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  justify-self: center;
+  width: min(600px, 100%);
+}
+button {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.5);
+  color: #eee;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 30px;
+  justify-content: center;
+  text-align: center;
+  overflow: visible;
+  text-overflow: clip;
+  height: 130px;
+margin: 5px;
+  justify-self: center;
+  
+  width: 180px;
+  }
+  #games > .game-link {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-sizing: border-box;
+    width: 180px;
+    height: 180px;
+    margin: 5px;
+    padding: 12px;
+    border-radius: 30px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #eee;
+    font-size: 1rem;
+    text-align: center;
+    text-decoration: none;
+  }
+  #games > .game-link:hover,
+  #games > .game-link:focus-visible {
+    background: rgba(0, 0, 0, 0.7);
+  }
+  .game-link img {
+    display: block;
+    width: 100%;
+    height: 115px;
+    object-fit: contain;
+  }
+  #comingSoon {
+  	
+  font-size: 1rem;
+  
+  height: 130px;
+  }
+  p {
+  	width: 700px;
+  	justify-self: center;
+  }
+    </style>
+</head>
+<body>
+
+
+
+
+
+
+
+
+    <div id='conrolCenter'>
+    <input type="number" id="x-vel" value="0" class='gone'>
+   
+   
+   
+    <input type="number" id="y-vel" value="0" class='gone'>
+   
+ 
+ 
+ 
+  <button id='elBtn' class="drawing" onclick="openElements()">Elements</button>
+  <button id='gravityBtn'class="drawing" onclick="toggleGravity(this)">Gravity On</button>
+ 
+ 
+  <!--<button id='gravityBtn'class="drawing" onclick="toggleSnap(this)">Break On</button>-->
+  <span class="slider round"></span>
+  </label>
+  <span class="slider round"></span>
+  </label>
+ 
+  <button id='play'class="drawing" onclick="run()">run</button>
+  <button class="drawing" onclick="reset()">reset</button>
+ 
+  <button id="fullscrean"class="drawing" onclick="fullscrean()">⛶</button>
+ 
+ 
+ 
+ 
+    <button class="drawing, selected" onclick="drawing('point', this, 'radias',  5,  15)">point</button>
+    <button class="drawing" onclick="drawing('spring', this)">spring</button>
+    <button class="drawing" onclick="drawing('line', this)">line</button>
+    <button class="drawing" onclick="drawing('block', this, 'gap', 20, 100)">block</button>
+   
+    <button class="drawing" onclick="drawing('hydrolic', this)">hydrolic</button>
+    <button class="drawing" onclick="drawing('rope', this, 'gap', 15, 100)">rope</button>
+     <label id="sliderLabel">radius:</label>
+  <input type="range" min="5" max="30" value="7" class="slider" id="slider">
+ 
+          <!--<input id="customCarColor" type="color" value="#ff0000" oninput="changeBallColor(this.value)">-->
+     <div id="drawingBtns">
+   
+    </div>
+    </div>
+   
+    <div class="container">
+ 
+    <canvas id="myCanvas"></canvas>
+    <div id='elements' ;>
+   
+   
+   
+   
+   
+         <div class="overlay">
+          	<h1 >Wobbly World!</h1>
+            <div id='games'>
+            <a class="game-link" href="https://silasbates.github.io/wobblywheels/">
+              <img src="wobbly%20wheels%20logo.png" alt="">
+              <span>Wobbly Wheels</span>
+            </a>
+            
+            <a class="game-link" href="https://silasbates.github.io/sandbox/">
+              <img src="sandbox%20logo.png" alt="">
+              <span>Particle Sandbox</span>
+            </a>
+            
+            
+            <!--<button id='comingSoon'>More Coming Soon</button>--->
+            
+            
+            
+            
+          </div>
+       <p>Wobbly World is a collection of games that are made by Silas Bates. Most of my games have a soft-body engine which I created. In my opinion, the best game is probably Wobbly Wheels, which is a chaotic car crash game.</p>
+       
+       
+       
+       
+  </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+   let tall = 1000
+    let inEl = false
+    let elements = [
+   
+    {name: "jello", anchor: false, stiffness: 0.2, connect: true, colors: ["rgba(255, 0, 0, 1)"], snapAt: 2, damping: 0.05, sType: 1, restitution: 0.99, spawnFire: false},
+   
+   
+   
+    {name: 'particle', anchor: false, stiffness: -10, connect: false,
+    colors: ["orange", "blue", 'teal', 'yellow'], snapAt: 2, damping: 0.05, sType: 1, restitution: 1, spawnFire: false},
+   
+   
+  
+      {name: "fire", anchor: false, stiffness: -10, connect: false, colors: ["yellow", 'orange', 'red'], snapAt: 2, damping: 0.05, sType: 1, restitution: 0.99, spawnFire: false},
+     
+      {name: "magnet", anchor: false, stiffness: 0.4, connect: false, colors: ["black", '#111', '#222'], snapAt: 2, damping: 0.05, sType: 1, restitution: 0.7, spawnFire: false},
+     
+     
+      {name: "bomb", anchor: false, stiffness: 5, connect: true, colors: ["white", '#333', '#222'], snapAt: 2, damping: 0.05, sType: 2, restitution: 0.7, spawnFire: true},
+    ]
+   
+   let elNames = []
+   for (element of elements) {
+            elNames.push(element.name)
+    }
+    
+    
+   
+    let e = elements[0]
+   
+   
+     
+   
+    const elementDiv = document.getElementById("elements");
+    const elementName = document.getElementById("elementName");
+   
+    function selectElement(name) {
+    elementName.textContent = name;
+    for (element of elements) {
+        if (element.name === name ) {
+            e = element
+        }
+    }
+    openElements()
+   
+ 
+}
+function randomElement() {
+	e = elements[Math.floor(Math.random() * elements.length)]
+}
+
+
+
+function getElementByName(name) {
+	for (element of elements) {
+        if (element.name === name) {
+            return element
+        }
+    }
+}
+   
+   
+    openElements()
+   
+    function openElements() {
+ 
+}
+
+
+    //let ballColor = "#fa0";
+    let ballColor = "white";
+    let springColor = "gray"
+    let readyForBg = false
+    //fushcia
+    let save = []
+    let drawColor = "white"
+   
+    const playBtn = document.getElementById("play");
+   
+   
+   
+    let isSnap = true
+    let isGravity = true
+    let snap = true
+    playBtn.textContent = "Run";
+
+
+   
+   
+   
+   
+   
+    function changeBallColor() {
+           
+    }
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+    function makeBall(x, y, rad, springs, springDist, ballEl = e) {
+        balls.push({
+                x: x,
+                y: y,
+                xVel: 0,
+                yVel: 0,
+                radias: rad,
+                spring:     ballEl.connect === true ? springs : [],
+                springDist: ballEl.connect ? springDist : [],
+                anchor: ballEl.anchor ? [x, y] : false,
+                color: ballEl.colors[Math.floor(Math.random() * ballEl.colors.length)],
+                el: elements.indexOf(ballEl)
+            });
+       
+    }
+   
+    function toggleGravity(item) {
+        isGravity = !isGravity
+       
+        //alert(isGravity)
+        if (isGravity) {
+       
+            item.textContent = "Gravity ON";
+        } else {
+           
+            item.textContent = "Gravity OFF";
+        }
+       
+    }
+   
+   
+    function toggleSnap(item) {
+        isGravity = !isGravity
+       
+        //alert(isGravity)
+        if (isGravity) {
+       
+            item.textContent = "Break ON";
+        } else {
+           
+            item.textContent = "Break OFF";
+        }
+       
+    }
+   
+   
+   
+   
+   
+    function reset() {
+ 
+        balls = []
+        running = false
+        level = []
+       
+makeLine(5, canvas.height - 5, canvas.width - 5, canvas.height - 5)
+        makeLine(5, 0, 5, canvas.height - 5)
+        makeLine(canvas.width - 5, 0, canvas.width - 5, canvas.height - 5)
+        makeLine(0, 0, canvas.width - 5, 0)
+    }
+   
+     function load() {
+        balls = structuredClone(save);
+       
+    }
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+        let springsColide = true;
+            const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+    //window.addEventListener('resize(true)', resize);
+    function fullscrean() {
+        if (!document.fullscreenElement) {  
+        document.documentElement.requestFullscreen()
+    } else {
+        document.exitFullscreen();
+    }
+       
+        resizeTimer = setTimeout(() => {
+        resize(true);
+       
+        }, 200);
+       
+    }
+    let ballsTouch = true
+    let springSnap = 2.0
+    let drawingInput = "point"
+    let selected = null
+    let ballRadias = 7
+    let lineX = null
+    let lineY = null
+    let rectX = null
+    let rectY = null
+    let ropeX = null
+    let ropeY = null
+        document.addEventListener('mousedown', (event) => {
+        if (inEl) {return}
+    //if (running) return;
+    const rect = canvas.getBoundingClientRect();
+    const mouseX = event.clientX - rect.left;
+    const mouseY = event.clientY - rect.top;
+
+
+
+
+
+
+
+
+
+
+
+
+    if (getInput("drawing") === 'spring' || getInput("drawing") === 'hydrolic') {
+        selected = isNearBall(mouseX, mouseY, 15, false, true);
+       
+    } else if (getInput("drawing") === 'point' || getInput("drawing") === 'anchor') {
+        if (mouseY < canvas.height - 5 && mouseY > 20) {
+       
+            makeBall(
+                mouseX,
+               
+                mouseY,
+               
+                Number(getInput("slider")),
+               
+                getInput("auto") === true ? isNearBall(mouseX, mouseY, 100) : [],
+               
+                getInput("auto") === true ? isNearBall(mouseX, mouseY, 100, true) : [],
+               
+               
+           
+           
+            )
+           
+           
+           
+            /*
+            balls.push({
+                x: mouseX,
+                y: mouseY,
+                xVel: getInput("drawing") === 'anchor' ? 0 : getInput("xVel"),
+                yVel: getInput("drawing") === 'anchor' ? 0 : getInput("yVel"),
+                radias: Number(getInput("slider")),
+                spring:     getInput("auto") === true ? isNearBall(mouseX, mouseY, 100) : [],
+                springDist: getInput("auto") === true ? isNearBall(mouseX, mouseY, 100, true) : [],
+                anchor: getInput("drawing") === 'anchor' ? [mouseX, mouseY] : false
+            });*/
+        }
+    } else if (getInput("drawing") === 'block') {
+        rectX = mouseX
+        rectY = mouseY
+    } else if (getInput("drawing") === 'line') {
+        lineX = mouseX
+        lineY = mouseY
+    } else if (getInput("drawing") === 'rope') {
+        ropeX = mouseX
+        ropeY = mouseY
+    }
+});
+function run() {
+    if (running) load()
+    running =  !running
+   
+}  
+document.addEventListener('mouseup', (event) => {
+    //if (inEl = true) return
+    const rect = canvas.getBoundingClientRect();
+    const mouseUpX = event.clientX - rect.left;
+    const mouseUpY = event.clientY - rect.top;
+
+
+if (inEl) {return}
+
+
+
+
+
+
+
+
+
+
+    if (getInput("drawing") === 'spring' && selected !== null ||  getInput("drawing") === 'hydrolic') {
+        let target = isNearBall(mouseUpX, mouseUpY, 15, false, true);
+        if (target !== null && target !== selected) {
+            const distOfBalls = getDistance(balls[selected].x, balls[selected].y, balls[target].x, balls[target].y);
+            balls[selected].spring.push(target);
+            balls[selected].springDist.push(getInput("drawing") === 'hydrolic' ? distOfBalls / hydrolicSize : distOfBalls);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+             if (getInput("drawing") === 'hydrolic'){
+            hydrolics.push([balls[selected], balls[target]]);
+        }
+        }
+    }
+    if (getInput("drawing") === 'line') {
+        makeLine(lineX, lineY, mouseUpX, mouseUpY)
+    }
+    if (getInput("drawing") === 'block') {
+        makeBlock(rectX, rectY, (mouseUpX - rectX) / Number(getInput("slider")), (mouseUpY - rectY) / Number(getInput("slider")), Number(getInput("slider")))
+    }
+    if (getInput("drawing") === 'rope') {
+       
+       // const ballLen = balls.length
+        //const close = isNearBall(ropeX, ropeY, 50, false, true)
+        makeRope(ropeX, ropeY, mouseUpX, mouseUpY, Number(getInput("slider")))
+        //balls[close].springs.push(ballLen + 1)
+        //balls[close].springDists.push(0)
+    }
+    selected = null;
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function drawing(what, thing, slider = "none", min = 0, max = 0) {
+    drawingInput = what
+    const elements = document.querySelectorAll('.selected');
+    elements.forEach(element => {
+        element.classList.remove('selected');
+       
+    });
+    thing.classList.add('selected');
+   
+        const sliderElement = document.getElementById('slider');
+    const sliderLabel = document.getElementById('sliderLabel');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    if (slider === "none") {
+        sliderElement.style.display = "none";
+        sliderLabel.style.display = "none";
+    } else {
+        sliderElement.style.display = "inline-block";
+        sliderLabel.style.display = "inline-block";
+       
+       
+        sliderLabel.innerHTML = slider + ":";
+        sliderElement.min = min;
+        sliderElement.max = max;
+    }
+   
+}
+        function getInput(input) {
+    const xInput = document.getElementById('x-vel').value;
+    const yInput = document.getElementById('y-vel').value;
+    const autoInput = true;
+    const slider = document.getElementById('slider').value;
+     
+     const snap = isSnap;
+    //const autoInput = document.getElementById('autoMakeLines').checked;
+   
+    if (input === "xVel") {
+        return parseFloat(xInput) || 0;
+    }
+    if (input === "yVel") {
+        return parseFloat(yInput) || 0;
+    }
+    if (input === "drawing") {
+        return drawingInput;
+    }
+    if (input === "auto") {
+        return autoInput;
+    }
+    if (input === "slider") {
+        return slider
+    }
+    if (input === "gravity") {
+        return isGravity
+    }
+    if (input === "snap") {
+        return snap
+    }
+}
+        //stopgame
+       
+        let running = false
+        let pie = Math.PI
+        let restitution = 0.99
+        let friction = 0.5
+        let isSpacePressed = false
+        let DStiffness = 0.4
+        let gravity = 0.1
+        let level = [];
+        let copy = []
+        let balls = [
+        ];
+        let hydrolics = [];
+        let hydrolicSize = 1
+       
+        function resize(levelIsThere = false) {
+            canvas.width = window.innerWidth;
+            canvas.height = tall;
+            //elementDiv.width = window.innerWidth;
+            //elementDiv.height = window.innerHeight - 130;
+            if (levelIsThere) {
+               
+                level[0] = {x1: 5, y1: canvas.height - 5, x2: window.innerWidth - 5, y2: canvas.height - 5}
+                level[1] = {x1: 5, y1: 0, x2: 5, y2: canvas.height - 5}
+                level[2] = {x1: canvas.width - 5, y1: 0, x2: canvas.width - 5, y2: canvas.height - 5}
+                level[3] = {x1: 0, y1: 0, x2: canvas.width - 5, y2: 0}
+               
+            }
+        }
+resize()
+makeLine(5, canvas.height - 5, canvas.width - 5, canvas.height - 5)
+        makeLine(5, 0, 5, canvas.height - 5)
+        makeLine(canvas.width - 5, 0, canvas.width - 5, canvas.height - 5)
+        makeLine(0, 0, canvas.width - 5, 0)
+
+
+
+
+
+
+
+
+
+
+
+
+let time = 700
+
+
+       function update() {
+       time++
+       if (running) {
+           
+            playBtn.textContent = "stop";
+       } else {
+            playBtn.textContent = "play";
+        }
+            if (!running) {
+        save = structuredClone(balls);
+            }
+       
+       ctx.lineWidth = 2;
+       resize(true)
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    if (readyForBg) {
+        drawBg()
+    }
+    for (let line of level) {
+    /*ctx.strokeStyle = "white";
+        ctx.lineWidth = 5;
+        ctx.beginPath();
+        ctx.moveTo(line.x1, line.y1);
+        ctx.lineTo(line.x2, line.y2);
+        ctx.stroke();*/
+    }
+     if (running) {
+    for (let i = 0; i < balls.length; i++) {
+            for (let j = i + 1; j < balls.length; j++) {
+                collideWithBall(balls[i], balls[j])
+            }
+        }
+    for (let b of balls) {
+        for (let s of b.spring) {
+            if (balls[s]) {
+                spring(b, balls[s]
+                , b.springDist[b.spring.indexOf(s)],
+                elements[b.el].stiffness);
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+            }
+        }
+        b.x += b.xVel;
+        b.y += b.yVel;
+        let hasTouched = false;
+       
+        for (let line of level) {
+            if (touchingLine(b, line)) {
+                bounce(b, line);
+                hasTouched = true;
+                break;
+            }
+        }
+       
+        if (b.anchor) {
+            ctx.fillStyle = "red"
+        } else {
+            ctx.fillStyle = ballColor
+        }
+        if (b.anchor) {
+            b.x = b.anchor[0]
+            b.y = b.anchor[1]
+            b.xVel = 0;
+            b.yVel = 0;
+        }
+       
+            ctx.fillStyle = b.color;
+        ctx.beginPath();
+        ctx.arc(b.x, b.y, b.radias, 0, 2 * Math.PI, false);
+        ctx.fill();
+       
+        if (!hasTouched && getInput('gravity')) {
+            if (elements[b.el].name == "fire") {
+               let sinOfMax = Math.sin((time * 50) + balls.indexOf(b) * 143) * 0.2
+                b.yVel += -0.05
+                b.yVel = Math.min(2, b.yVel)
+                b.xVel += Math.sin((time * 50) + balls.indexOf(b) * 143) * 0.2
+               
+            } else {
+                b.yVel += gravity;
+            }
+            //b.xVel += Xgravity;
+        }
+       
+        if (b.anchor) {
+            b.x = b.anchor[0]
+            b.y = b.anchor[1]
+            b.xVel = 0;
+            b.yVel = 0;
+        }
+        if (elements[b.el].name === "magnet") {
+    let magnetIDs = isNearBall(b.x, b.y, 200, false, false);
+
+
+    for (let mbId of magnetIDs) {
+        let mb = balls[mbId];
+       
+        // Prevent the magnet from pulling itself
+        if (mb === b) continue;
+
+
+        if (elements[mb.el].name == "magnet") {
+            // 1. Get the X and Y distance components
+            let dx = mb.x - b.x;
+            let dy = mb.y - b.y;
+
+
+            // 2. Use Math.hypot to get the straight-line distance
+            let mbDist = Math.hypot(dx, dy);
+           
+            // Avoid division by zero if they are perfectly overlapping
+            if (mbDist === 0 || mbDist > 200) continue;
+
+
+            // Calculate pull strength (closer = stronger)
+            let pull = (200 - mbDist) * 0.0006;
+
+
+            // 3. Find the angle and apply the force
+            let angle = Math.atan2(dy, dx);
+            b.xVel += Math.cos(angle) * pull;
+            b.yVel += Math.sin(angle) * pull;
+        }
+    }
+}
+
+
+
+
+
+
+    }
+   
+    } else {
+        for (let b of balls) {
+       
+        for (let s of b.spring) {
+            // Safety check: ensure the connected ball exists
+            if (balls[s]) {
+                spring(b, balls[s], b.springDist[b.spring.indexOf(s)]);
+            }
+        }
+        if (b.anchor) {
+            ctx.fillStyle = "red"
+        } else {
+            ctx.fillStyle = ballColor;
+        }
+       
+            ctx.fillStyle = b.color;
+             ctx.beginPath();
+        ctx.arc(b.x, b.y, b.radias, 0, 2 * Math.PI, false);
+        ctx.fill();
+        }
+    }
+    for (let b of balls) {
+       
+       
+       
+        if (b.anchor) {
+            ctx.fillStyle = "red"
+        } else {
+            ctx.fillStyle = ballColor;
+        }
+       
+            ctx.fillStyle = b.color;
+             ctx.beginPath();
+        ctx.arc(b.x, b.y, b.radias, 0, 2 * Math.PI, false);
+        ctx.fill();
+        }
+       
+       
+       running = true;
+       if (time > 200) {
+       	if (Math.random() > 0.9) {
+        	reset()
+        }
+       	time = 0
+        randomElement()
+        makeBlock((canvas.width / 2) - 70, 100, 7, 5, 20)
+        
+        running = true
+       }
+    requestAnimationFrame(update);
+}  
+        function isTouchingCorner(ball, line) {
+            //line = {x1: line[0], y1: line[1], x2: line[2],y2: line[3]}
+           
+        }
+        function makeRope(x1, y1, x2, y2, gap) {
+    const dist = getDistance(x1, y1, x2, y2);
+    if (dist < gap) return
+    // Determine how many balls fit in this distance
+    const steps = Math.floor(dist / gap);
+   
+    // Calculate the normalized step for x and y
+    const dx = (x2 - x1) / steps;
+    const dy = (y2 - y1) / steps;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    let lastBallIndex = null;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    for (let i = 0; i <= steps; i++) {
+        // Calculate current position
+        const currX = x1 + (dx * i);
+        const currY = y1 + (dy * i);
+
+
+
+
+
+
+
+
+
+
+        makeBall(
+            currX,
+            currY,
+            ballRadias,
+            lastBallIndex === null ?  [isNearBall(ropeX, ropeY, 50, false, true)] : [lastBallIndex],
+            (lastBallIndex === null ?  [isNearBall(ropeX, ropeY, 50, true, true)] : [gap]),
+            )
+
+
+
+
+        /*const newBall = {
+            x: currX,
+            y: currY,
+            xVel: 0,
+            yVel: 0,
+            radias: ballRadias,
+            spring: lastBallIndex === null ?  [isNearBall(ropeX, ropeY, 50, false, true)] : [lastBallIndex],
+            springDist: lastBallIndex === null ?  [isNearBall(ropeX, ropeY, 50, true, true)] : [gap],
+            anchor: false
+        };
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //balls.push(newBall);
+       
+        // The index of the ball we just added
+        const currentIdx = balls.length - 1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // Link the previous ball to this new ball (bidirectional spring)
+        if (lastBallIndex !== null && e.connect) {
+            balls[lastBallIndex].spring.push(currentIdx);
+            balls[lastBallIndex].springDist.push(gap);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        lastBallIndex = currentIdx;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function makeBlock(startX, startY, widthCount, heightCount, spacing) {
+  let w = Math.abs(Math.round(widthCount));
+  let h = Math.abs(Math.round(heightCount));
+  let absSpacing = Math.abs(spacing);
+
+  let dirX = Math.sign(widthCount) || 1;
+  let dirY = Math.sign(heightCount) || 1;
+
+  for (let row = 0; row <= h; row++) {
+    for (let col = 0; col <= w; col++) {
+      let px = startX + col * spacing * dirX;
+      let py = startY + row * spacing * dirY;
+
+      let mySprings = isNearBall(px, py, absSpacing * 1.5) || [];
+      let myDists = isNearBall(px, py, absSpacing * 1.5, true) || [];
+
+      makeBall(px, py, ballRadias, mySprings, myDists);
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+        function getDistance(x1, y1, x2, y2) {
+            return Math.hypot(x2 - x1, y2 - y1);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        function dot(x1, y1, x2, y2) {
+            return (x1 * x2) + (y1 * y2)
+        }
+        function getNormal(x1, y1, x2, y2) {
+            const distX = x2 - x1;
+            const distY = y2 - y1;
+            const len = Math.hypot(distX, distY)
+           
+            return {
+                x: distY / len,
+                y:-distX / len
+            };
+        }
+        function isNearBall(x, y, dist, dists = false, min = false) {
+    let output = [];
+    let closest = 10000;
+    let closestOutput = null;
+    for (let i = 0; i < balls.length; i++) {
+        let b = balls[i];
+        let d = getDistance(x, y, b.x, b.y);
+        if (d < closest) {
+            closest = d;
+            closestOutput = i;
+        }
+        if (d < dist && d > 0.1) {
+            if (dists) output.push(d);
+            else output.push(i);
+        }
+    }
+    return min ? closestOutput : output;
+}
+        function bounce(b, line) {
+            b.angleVel = b.angleVel ?? -0.1
+            //const normalX = line[4][0]
+            //const normalY = line[4][1]
+            const normal = getNormal(line.x1, line.y1, line.x2, line.y2)
+            if (getDistanceFromLine(b, line) > 0) {
+                normal.x *= -1
+                normal.y *= -1
+            }
+            const speedOnTangent = dot(b.xVel, b.yVel, normal.y, -normal.x)
+            const speedOnNormal = dot(b.xVel, b.yVel, normal.x, normal.y)
+            b.xVel = -(speedOnNormal  * normal.x + b.angleVel) * (restitution)
+                    + (speedOnTangent * normal.y) * (1 - friction);
+            b.yVel = -(speedOnNormal  * normal.y) * (restitution)
+                    + (speedOnTangent *-normal.x + -b.angleVel) * (1 - friction);
+           
+            b.angleVel = (b.angleVel + speedOnTangent * 0.1) * (1 - friction);
+            b.x += b.xVel
+            b.y += b.yVel
+            while (touchingLine(b, line)) {
+                b.x += normal.x
+                b.y += normal.y
+            }
+        }
+        /*function colideWithBall(b) {
+    let neighbors = isNearBall(b.x, b.y, 30); // 30 is radius + radius
+    for (let index of neighbors) {
+        let otherBall = balls[index];
+        if (otherBall !== b) { // FIX: Don't collide with yourself!
+            bounceOffBall(b, otherBall);
+            break;
+        }
+    }
+}*/
+        function collideWithBall(ball1, ball2) {
+        let rest =  (elements[ball1.el].restitution +                                  elements[ball2.el].restitution) / 2
+        //let bounce = 1
+        if (!ballsTouch) return;
+    if (ball1.xVel === "anchor" && ball2.xVel === "anchor") return;
+    const dx = ball1.x - ball2.x;
+    const dy = ball1.y - ball2.y;
+    const distance = Math.hypot(dx, dy);
+    const minDistance = ball1.radias + ball2.radias;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    if (distance < minDistance && distance > 0) {
+        const overlap = minDistance - distance;
+        const nx = dx / distance;
+        const ny = dy / distance;
+        if (ball1.xVel !== "anchor") {
+            ball1.x += nx * overlap * 0.5;
+            ball1.y += ny * overlap * 0.5;
+        }
+        if (ball2.xVel !== "anchor") {
+            ball2.x -= nx * overlap * 0.5;
+            ball2.y -= ny * overlap * 0.5;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        const v1x = ball1.xVel === "anchor" ? 0 : ball1.xVel;
+        const v1y = ball1.yVel === "anchor" ? 0 : ball1.yVel;
+        const v2x = ball2.xVel === "anchor" ? 0 : ball2.xVel;
+        const v2y = ball2.yVel === "anchor" ? 0 : ball2.yVel;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        const relVelX = v1x - v2x;
+        const relVelY = v1y - v2y;
+        const velAlongNormal = (relVelX * nx) + (relVelY * ny);
+        if (velAlongNormal > 0) return;
+        const impulse = -(1 + rest) * velAlongNormal / 2;
+       
+        if (ball1.xVel !== "anchor") {
+            ball1.xVel += impulse * nx;
+            ball1.yVel += impulse * ny;
+        }
+        if (ball2.xVel !== "anchor") {
+            ball2.xVel -= impulse * nx;
+            ball2.yVel -= impulse * ny;
+        }
+    }
+}
+
+
+        function spring(b1, b2, dist, stiffness = false, springIndex) {
+
+
+if (elements[b1.el].sType === 2) {
+    spring2(b1, b2, dist, stiffness)
+    return
+}
+
+
+
+
+
+
+
+
+
+
+    const distOfPoints = getDistance(b1.x, b1.y, b2.x, b2.y);
+    const snapThreshold =  (elements[b1.el].snapAt +
+                      elements[b2.el].snapAt) / 2;
+    const isHydrolic = hydrolics.some(pair => (pair[0] === b1 && pair[1] === b2) || (pair[0] === b2 && pair[1] === b1));
+    const dx = b1.x - b2.x;
+    const dy = b1.y - b2.y;
+    if (distOfPoints > dist * snapThreshold || distOfPoints < dist * 1 / snapThreshold) {
+        if (!isHydrolic) {
+            if (getInput('snap')) {
+                b1.spring.splice(springIndex, 1);
+                b1.springDist.splice(springIndex, 1);
+                if (elements[b1.el].spawnFire) {
+                makeBall(
+            b1.x,
+            b1.y,
+            ballRadias,
+            [], [],
+            getElementByName("fire"),
+            )
+            }
+            return;
+            }
+        }
+    }
+
+
+
+
+
+
+    if (!stiffness) {
+    stiffness = (elements[b1.el].stiffness +
+            elements[b2.el].stiffness) / 2
+
+
+}
+
+
+   
+   
+    ctx.strokeStyle = isHydrolic ? "blue" : getSpringColor(b1.color, b2.color, 0.5);
+    if (isHydrolic) {
+        stiffness /= 2
+        const xOfBig = b1.x - (dx / distOfPoints) * dist / 2;
+        const yOfBig = b1.y - (dy / distOfPoints) * dist / 2;
+        ctx.lineWidth = 5;
+        ctx.beginPath();
+        ctx.moveTo(b1.x, b1.y);
+        ctx.lineTo(xOfBig, yOfBig);
+        ctx.stroke();
+        dist *= hydrolicSize;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(b1.x, b1.y);
+    ctx.lineTo(b2.x, b2.y);
+    ctx.stroke();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    if (!running || !b1 || !b2 || distOfPoints === 0) return;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    let multiplyer = (1 - (dist / distOfPoints)) / 2 * stiffness;
+   
+    if (!b1.anchor) {
+        b1.x += -dx * multiplyer;
+        b1.y += -dy * multiplyer;
+        b1.xVel += (-dx * multiplyer) / 1;
+        b1.yVel += (-dy * multiplyer) / 1;
+       
+    }
+    if (!b2.anchor) {
+        b2.x += dx * multiplyer;
+        b2.y += dy * multiplyer;
+        b2.xVel += dx * multiplyer / 1;
+        b2.yVel += dy * multiplyer / 1;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function spring2(b1, b2, dist, stiffness, damping = false) {
+   
+    const isHydrolic = hydrolics.some(pair => (pair[0] === b1 && pair[1] === b2) || (pair[0] === b2 && pair[1] === b1));
+   
+    ctx.strokeStyle = isHydrolic ? "blue" : getSpringColor(b1.color, b2.color, 0.5);
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(b1.x, b1.y);
+    ctx.lineTo(b2.x, b2.y);
+    ctx.stroke();
+
+
+    if (!running) return
+   
+    if (!damping) {
+        damping = (elements[b1.el].damping +
+                      elements[b2.el].damping) / 2
+    }
+   
+    let springIndex = b1.spring.indexOf(balls.indexOf(b2))
+   
+   
+   
+
+
+    let dx = b2.x - b1.x;
+    let dy = b2.y - b1.y;
+   
+   
+    let len = Math.sqrt(dx * dx + dy * dy);
+   
+   
+   
+   
+    let ballSnapAt = (elements[b1.el].snapAt +
+                      elements[b2.el].snapAt) / 2
+   
+   
+   
+   
+  if (len > dist * ballSnapAt || len < dist * (1 / ballSnapAt)) {
+        if (!isHydrolic) {
+            if (isSnap) {
+                b1.spring.splice(springIndex, 1);
+                b1.springDist.splice(springIndex, 1);
+                
+                 					if (elements[b1.el].spawnFire) {
+                makeBall(
+            b1.x,
+            b1.y,
+            4,
+            [], [],
+            getElementByName("fire"),
+            )
+            }
+                return;
+                
+            }
+        }
+  }
+   
+   
+   
+   
+    if (len === 0) return
+    const force = stiffness * (len - dist);
+   
+   
+    const fx = force * (dx / len);
+    const fy = force * (dy / len);
+   
+   
+    const rxvel = b2.xVel - b1.xVel;
+    const ryvel = b2.yVel - b1.yVel;
+   
+   
+    const totalFx = fx + (damping * rxvel);
+    const totalFy = fy + (damping * ryvel);
+   
+   
+   
+     const m1 = b1.radius || 1;
+    const m2 = b2.radius || 1;
+   
+   
+    b1.xVel += (totalFx / m1);
+    b1.yVel += (totalFy / m1);
+   
+
+
+    b2.xVel -= (totalFx / m2);
+    b2.yVel -= (totalFy / m2);
+ 
+    //TODO add mass to each ball  
+    //b1.xVel += (totalFx / b2.radias) * dt;
+    //b1.yVel += (totalFy / b2.radias) * dt;
+
+
+   
+ //   b2.xVel -= (totalFx / b2.radias) * dt;
+  //  b2.yVel -= (totalFy / b2.radias) * dt;
+   
+   
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function getSpringColor(color1, color2, darkenFactor = 0.2) {
+    const ctx = document.createElement('canvas').getContext('2d');
+   
+    ctx.fillStyle = color1;
+    const c1Str = ctx.fillStyle;
+    ctx.fillStyle = color2;
+    const c2Str = ctx.fillStyle;
+   
+    const r1 = parseInt(c1Str.slice(1, 3), 16);
+    const g1 = parseInt(c1Str.slice(3, 5), 16);
+    const b1 = parseInt(c1Str.slice(5, 7), 16);
+   
+    const r2 = parseInt(c2Str.slice(1, 3), 16);
+    const g2 = parseInt(c2Str.slice(3, 5), 16);
+    const b2 = parseInt(c2Str.slice(5, 7), 16);
+   
+    const avgR = Math.round((r1 + r2) / 2);
+    const avgG = Math.round((g1 + g2) / 2);
+    const avgB = Math.round((b1 + b2) / 2);
+   
+    const darkR = Math.max(0, Math.round(avgR * (1 - darkenFactor)));
+    const darkG = Math.max(0, Math.round(avgG * (1 - darkenFactor)));
+    const darkB = Math.max(0, Math.round(avgB * (1 - darkenFactor)));
+   
+    return "#" + ((1 << 24) + (darkR << 16) + (darkG << 8) + darkB).toString(16).slice(1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        //makeBlock(100, 100, 5, 5, 100)
+        //stopgame
+        update();
+        document.addEventListener('keydown', (event) => {
+       
+           
+         if (event.key === 'r') {
+     //running = false
+                if (!running) {
+                    balls = []
+                } else {
+                    load()
+                    running = false
+                }
+               
+               
+                 
+         }
+        if (event.key === ' ') {
+       
+            if (!running) {
+                //copy = balls      
+            }  
+           
+           
+            if (!isSpacePressed) {
+                run()
+            }
+            isSpacePressed = true;
+            }
+         
+         if (event.key === ' ') {
+            if (!running) {
+                //copy =balls      
+            }  
+           
+            }
+            if (event.key === 'ArrowUp') {
+                 
+                if (hydrolicSize < 1.5) {
+                hydrolicSize += 0.05}
+            }
+            if (event.key === 'ArrowDown') {
+                if (hydrolicSize > 0.5) {
+                hydrolicSize -= 0.05}
+            }
+            if (event.key === 'ArrowLeft') {
+                 
+                hydrolicSize += (0.5 - hydrolicSize)  / 2
+            }
+            if (event.key === 'ArrowRight') {
+                hydrolicSize += (1.5 - hydrolicSize)  / 2
+            }
+            if (event.key === 'f') {
+                fullscrean()
+            }
+           
+            if (event.key === 'e') {
+               
+    openElements()
+               
+            }
+         
+         
+});
+   document.addEventListener('keyup', (event) => {
+        if (event.code === 'Space') {
+           
+            isSpacePressed = false;
+                 
+         }
+         
+         
+});      
+    function touchingLine(ball, line) {
+            const closeToLine = Math.abs(getDistanceFromLine(ball, line)) < ball.radias + 5
+            const closeAlongLine = getDistanceAlongLine(ball, line) < getDistance(line.x1, line.y1, line.x2, line.y2) && getDistanceAlongLine(ball, line) > 0
+            return closeToLine && closeAlongLine
+    }
+    function getDistanceFromLine(ball, line) {
+        const normal = getNormal(line.x1, line.y1, line.x2, line.y2)
+        return dot(line.x1 - ball.x, line.y1 - ball.y, normal.x, normal.y)
+    }
+    function getDistanceAlongLine(ball, line) {
+        const normal = getNormal(line.x1, line.y1, line.x2, line.y2)
+        return dot(line.x1 - ball.x, line.y1 - ball.y, normal.y, -normal.x)
+    }
+    function makeLine(x1, y1, x2, y2) {
+        level.push({x1: x1, y1: y1, x2: x2, y2: y2})
+    }
+   
+   
+function drawBg(CTX = ctx, CANVAS = canvas) {
+
+
+let m = {title: "The Mountain", name: "normal", insideColor: '#888', surfaceColor: "#222",
+thickness: 5,  waterColor: '#23537d', grassColor: "#4cbe21",  
+sandColor: "#f6d597", skyColor: "#3b7eb3", sunsetColor: "#ffd090",
+mountainColors: ["#a1a8ad", "#7b8387", "#b3b9bc", "#60676b", "#8d9498"], drawShore: true, drawSun: true,
+friction: 1, restitution: 0, springSnap: 5, stiffness: 0.99999, gravity: 0.2,
+ carColor: "red", carSize: 1, wheelSize: 1, steep: 500, rocket: false, wind: false, space: false}
+ 
+
+
+  const mountainData = [
+    { color: m.mountainColors[0], x1: -20, x2: 60, x3: 140, h: 80},
+    { color: m.mountainColors[1], x1: 80, x2: 160, x3: 240, h: 110},
+    { color: m.mountainColors[2], x1: 180, x2: 270, x3: 360, h: 75},
+    { color: m.mountainColors[3], x1: 300, x2: 400, x3: 500, h: 130},
+    { color: m.mountainColors[4], x1: 420, x2: 510, x3: 600, h: 95}
+  ];
+
+
+  // sky
+  let skyGradient = ctx.createLinearGradient(0, 0, 0, canvas.height / 2);
+ //const isZeroGravitySky = m.name === "zero gravity";
+  //const targetSkyBlend = isZeroGravitySky && noGravity > 0 ? 1 : 0;
+ // zeroGravitySkyBlend += (targetSkyBlend - zeroGravitySkyBlend) * 0.06;
+  /*const blendSkyColor = (baseColor, purpleColor) => {
+    const base = Number.parseInt(baseColor.slice(1), 16);
+    const purple = Number.parseInt(purpleColor.slice(1), 16);
+    const channel = shift => Math.round(
+      ((base >> shift) & 255) * (1 - zeroGravitySkyBlend) +
+      ((purple >> shift) & 255) * zeroGravitySkyBlend
+    );
+    return `rgb(${channel(16)}, ${channel(8)}, ${channel(0)})`;
+  };*/
+  const skyColor = m.skyColor;
+  const sunsetColor = m.sunsetColor;
+  skyGradient.addColorStop(0, skyColor);
+  skyGradient.addColorStop(0.4, "#73aed9");
+  skyGradient.addColorStop(0.75, "#f79e45");
+  skyGradient.addColorStop(0.85, sunsetColor);
+  skyGradient.addColorStop(1, sunsetColor);
+  ctx.fillStyle = skyGradient;
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+       
+  // sun
+  if (m.drawSun) {
+  ctx.fillStyle = '#ffb';
+  ctx.strokeStyle = "black";
+  ctx.lineWidth = 4;
+  ctx.beginPath();
+  ctx.arc(canvas.width - 120, (canvas.height / 2) - 100, 50, 0, 2 * Math.PI);
+  ctx.fill();
+  ctx.stroke();
+    }
+  ctx.lineJoin = "round";
+  const baseY = canvas.height / 2 + 15;
+  const offsets = [];
+
+
+  for (let offset = -540; offset < canvas.width; offset += 540) {
+    offsets.push(offset);
+  }
+
+
+  // mountains
+  for (let offset of offsets) {
+    for (let m of mountainData) {
+      ctx.fillStyle = m.color;
+      ctx.strokeStyle = "black";
+      ctx.lineWidth = 5;
+      ctx.beginPath();
+      ctx.moveTo(0 + m.x1 + offset, baseY);
+      ctx.lineTo(0 + m.x2 + offset, baseY - m.h);
+      ctx.lineTo(0 + m.x3 + offset, baseY);
+      ctx.closePath();
+      ctx.fill();
+      ctx.stroke();
+    }
+  }
+
+
+  // ground
+  ctx.fillStyle = m.grassColor;
+  ctx.fillRect(0, baseY, canvas.width, canvas.height - baseY);
+
+
+  // horizon
+  ctx.strokeStyle = "black";
+  ctx.lineWidth = 5;
+  ctx.beginPath();
+  ctx.moveTo(0, baseY);
+  ctx.lineTo(canvas.width, baseY);
+  ctx.stroke();
+
+
+  for (let offset of offsets) {
+    const startX = 0 + offset;
+    const endX = 540 + offset;
+    // shore
+    if (m.drawShore) {
+        ctx.fillStyle = m.sandColor;
+        ctx.beginPath();
+        ctx.moveTo(startX, baseY + 30);
+        ctx.bezierCurveTo(
+        startX + 180, baseY + 90,
+        startX + 360, baseY - 10,
+            endX, baseY + 30
+        );
+        ctx.lineTo(endX, canvas.height);
+        ctx.lineTo(startX, canvas.height);
+        ctx.closePath();
+        ctx.fill();
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 5;
+        ctx.beginPath();
+        ctx.moveTo(startX, baseY + 30);
+        ctx.bezierCurveTo(startX + 180, baseY + 90, startX + 360, baseY - 10,   endX, baseY + 30);
+        ctx.stroke();
+    }
+
+
+    // water
+    if (m.waterColor) {
+    let lakeGradient = ctx.createLinearGradient(0, baseY + 80, 0, canvas.height);
+    lakeGradient.addColorStop(0, m.waterColor);
+    ctx.fillStyle = lakeGradient;
+    ctx.beginPath();
+    ctx.moveTo(startX, baseY + 90);
+    ctx.bezierCurveTo(
+      startX + 180, baseY + 150,
+      startX + 360, baseY + 50,
+      endX, baseY + 90
+    );
+    ctx.lineTo(endX, canvas.height);
+    ctx.lineTo(startX, canvas.height);
+    ctx.closePath();
+    ctx.fill();
+    ctx.strokeStyle = "black";
+    ctx.lineWidth = 5;
+    ctx.beginPath();
+    ctx.moveTo(startX, baseY + 90);
+    ctx.bezierCurveTo(startX + 180, baseY + 150, startX + 360, baseY + 50, endX, baseY + 90);
+    ctx.stroke();
+   
+    // wave
+    ctx.fillStyle = "rgba(78, 182, 194, 0.45)";
+    ctx.beginPath();
+    ctx.moveTo(startX, baseY + 80);
+    ctx.bezierCurveTo(
+      startX + 180, baseY + 140,
+      startX + 360, baseY + 40,
+      endX, baseY + 80
+    );
+    ctx.lineTo(endX, canvas.height);
+    ctx.lineTo(startX, canvas.height);
+    ctx.closePath();
+    ctx.fill();
+    ctx.strokeStyle = "white";
+    ctx.lineWidth = 4;
+    ctx.lineCap = "round";
+    ctx.beginPath();
+    ctx.moveTo(startX, baseY + 80);
+    ctx.bezierCurveTo(startX + 180, baseY + 140, startX + 360, baseY + 40, endX, baseY + 80);
+    ctx.stroke();
+ 
+
+
+  // ripples
+  ctx.strokeStyle = "rgba(252, 208, 96, 0.7)";
+  ctx.lineWidth = 5;
+  ctx.lineCap = "round";
+  ctx.beginPath();
+  ctx.moveTo(canvas.width - 220, canvas.height - 80);
+  ctx.lineTo(canvas.width - 60, canvas.height - 80);
+  ctx.moveTo(canvas.width - 170, canvas.height - 50);
+  ctx.lineTo(canvas.width - 30, canvas.height - 50);
+  ctx.stroke();
+  ctx.lineCap = "butt";
+ 
+  }
+  }
+
+
+  ctx.fillStyle = "rgba(0, 0, 0, 0.3)";
+  //ctx.fillRect(0, 0, canvas.width, canvas.height)
+}
+readyForBg = false
+     
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
