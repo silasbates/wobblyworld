@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	
+
   <title>wobbly world</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <link rel="icon" type="image/png" href="sandbox%20logo.png">
     <style>
     body {
@@ -43,7 +45,9 @@
 
 
 canvas {
-  /*display: block;*/
+  display: block;
+  width: 100%;
+  touch-action: none;
 }
 
 
@@ -258,7 +262,7 @@ h1 {
   font-weight: 1400;
   letter-spacing: 0.5px;
   
-    font-size: 3rem;
+  font-size: clamp(2rem, 8vw, 3rem);
 }
 #games {
   display: flex;
@@ -320,8 +324,9 @@ margin: 5px;
   height: 130px;
   }
   p {
-  	width: 700px;
-  	justify-self: center;
+    box-sizing: border-box;
+    width: min(700px, calc(100% - 32px));
+    justify-self: center;
   }
     </style>
 </head>
@@ -398,6 +403,11 @@ margin: 5px;
             <a class="game-link" href="https://silasbates.github.io/sandbox/">
               <img src="sandbox%20logo.png" alt="">
               <span>Particle Sandbox</span>
+            </a>
+
+            <a class="game-link" href="fish.html">
+              <img src="fish-logo.png" alt="">
+              <span>Fishing Game</span>
             </a>
             
             
@@ -607,7 +617,7 @@ makeLine(5, canvas.height - 5, canvas.width - 5, canvas.height - 5)
     }
    
      function load() {
-        balls = structuredClone(save);
+         balls = cloneBalls(save);
        
     }
    
@@ -625,18 +635,17 @@ makeLine(5, canvas.height - 5, canvas.width - 5, canvas.height - 5)
    
    
         let springsColide = true;
-            const canvas = document.getElementById('myCanvas');
-        const ctx = canvas.getContext('2d');
-    //window.addEventListener('resize(true)', resize);
-    function fullscrean() {
-        if (!document.fullscreenElement) {  
-        document.documentElement.requestFullscreen()
-    } else {
-        document.exitFullscreen();
-    }
+                const canvas = document.getElementById('myCanvas');
+            const ctx = canvas.getContext('2d');
+        function fullscrean() {
+            if (document.fullscreenElement) {
+                if (document.exitFullscreen) document.exitFullscreen();
+            } else if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen();
+            }
        
-        resizeTimer = setTimeout(() => {
-        resize(true);
+            resizeTimer = setTimeout(() => {
+            resize(true);
        
         }, 200);
        
@@ -652,8 +661,11 @@ makeLine(5, canvas.height - 5, canvas.width - 5, canvas.height - 5)
     let rectY = null
     let ropeX = null
     let ropeY = null
-        document.addEventListener('mousedown', (event) => {
-        if (inEl) {return}
+    let drawingPointerId = null
+    canvas.addEventListener('pointerdown', (event) => {
+        if (inEl || event.target !== canvas) {return}
+        drawingPointerId = event.pointerId
+        canvas.setPointerCapture(event.pointerId)
     //if (running) return;
     const rect = canvas.getBoundingClientRect();
     const mouseX = event.clientX - rect.left;
@@ -722,7 +734,9 @@ function run() {
     running =  !running
    
 }  
-document.addEventListener('mouseup', (event) => {
+canvas.addEventListener('pointerup', (event) => {
+    if (event.pointerId !== drawingPointerId) return
+    drawingPointerId = null
     //if (inEl = true) return
     const rect = canvas.getBoundingClientRect();
     const mouseUpX = event.clientX - rect.left;
@@ -994,7 +1008,7 @@ let time = 700
             playBtn.textContent = "play";
         }
             if (!running) {
-        save = structuredClone(balls);
+        save = cloneBalls(balls);
             }
        
        ctx.lineWidth = 2;
@@ -2185,11 +2199,17 @@ friction: 1, restitution: 0, springSnap: 5, stiffness: 0.99999, gravity: 0.2,
 }
 readyForBg = false
      
+    function cloneBalls(source) {
+        return source.map(ball => ({
+            ...ball,
+            spring: [...ball.spring],
+            springDist: [...ball.springDist],
+            anchor: Array.isArray(ball.anchor) ? [...ball.anchor] : ball.anchor
+        }));
+    }
     </script>
 </body>
 </html>
-
-
 
 
 
