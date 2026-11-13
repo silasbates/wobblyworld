@@ -9,12 +9,19 @@
      display: flex;
      justify-content: center;
      background-color: #111;
+     width: 100%;
+     min-width: 0;
+     overflow-x: hidden;
    }
    canvas {
      display: block;
      flex: none;
-     width: 100vw;
+     width: 100%;
+     max-width: 100%;
      height: 3700px;
+     touch-action: pan-y;
+     -webkit-user-select: none;
+     user-select: none;
      background-color: skyblue;
      background: linear-gradient(to top, black, #38bdf8);
    }
@@ -141,7 +148,9 @@
     // ctx.fillText("Caught: " + caughtCount, 240, 250);
      if (lastCatchTimer > 0) {
        lastCatchTimer--;
-       ctx.fillText(lastCatchText, 240, 280);
+       ctx.textAlign = "center";
+       ctx.fillText(lastCatchText, cx / 2, 280);
+       ctx.textAlign = "start";
      }
     
       
@@ -425,6 +434,4 @@ updateScroll();
  </script>
 </body>
 </html>
-
-
 
