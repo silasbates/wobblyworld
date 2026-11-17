@@ -2,58 +2,251 @@
 <html lang="en">
 <head>
  <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
  <style>
    body {
      margin: 0;
      display: flex;
      justify-content: center;
      background-color: #111;
-     width: 100%;
-     min-width: 0;
-     overflow-x: hidden;
    }
    canvas {
-     display: block;
-     flex: none;
-     width: 100%;
-     max-width: 100%;
-     height: 3700px;
-     touch-action: pan-y;
-     -webkit-user-select: none;
-     user-select: none;
      background-color: skyblue;
      background: linear-gradient(to top, black, #38bdf8);
    }
+       
+button {
+	margin: 5px;
+  flex: 1;
+  max-width: 180px;
+  background: rgba(0, 100, 255, 0.9);
+  color: #eee;
+  border: none;
+  padding: 16px 12px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  text-transform: lowercase;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: clip;
+  height: 50px;
+  width: 200px; 
+}
+#sell {
+  background: rgba(0, 255, 100, 0.7);
+  color: black;
+  justify-self: center;
+}
+
+button {
+  transition: transform 0.25s ease-in-out;
+  transition: background 0.5s ease;
+}
+#sell {
+  transition: transform 0.25s ease-in-out;
+  transition: background 0.5s ease;
+}
+
+#sell:hover {
+  transform: scale(1.1); 
+  background: white;
+  background: rgba(255, 255, 0, 0.7);
+  
+}
+
+#sell:active {
+  transform: scale(0.9); 
+  
+  background: rgba(100, 100, 255, 0.7);
+}
+
+.colorChange {
+  transition: transform 0.25s ease-in-out;
+  transition: background 0.5s ease;
+  
+  color: black;
+  }
+  
+.upgrade {
+  background: rgba(0, 255, 100, 0.7);
+  color: black;
+  justify-self: center;
+  width: 225px;
+  
+  max-width: 225px;
+}
+#reset {
+	background: rgba(255, 0, 0, 0.7);
+}
+.colorChange:hover {
+  transform: scale(1.1); 
+  background: white;
+  background: rgba(255, 255, 0, 0.7);
+  
+}
+
+.colorChange:active {
+  transform: scale(0.9); 
+  
+  background: rgba(100, 100, 255, 0.7);
+}
+#close {
+	margin: 20px;
+    
+}
+.line {
+	margin: 20px;
+    
+}
+#cashDiv {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: white;
+  height: 30px;
+  width: auto;
+  border-radius: 100px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+#cash, #cash2 {
+  margin: 0;
+  color: rgba(0, 200, 100, 0.7);
+  transition: background 0.5s ease;
+}
+
+
+
+
+
+   
+.overlay-ui { 
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%; 
+  pointer-events: click; 
+  display: flex; 
+  justify-content: center;
+  background: rgba(0, 0, 0, 0); 
+  color: white; 
+  font-family: sans-serif; 
+  color: black;
+}
+
+
+#shop {
+	
+    display: block;
+}
+
+#shop {
+  display: block;
+  text-align: center;
+}
+button, h1, h2, h3, h4, h5, h6, p, div, body {
+  
+  text-transform: none;
+  
+  font-family: 'Comfortaa', sans-serif;
+  font-weight: 900;
+}
+
+
+#shop h1 {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 10px;
+}
+
+#shop button {
+  vertical-align: middle;
+}
+
  </style>
 </head>
 <body>
+
+<div>
  <canvas id="canvas"></canvas>
+ <div class='overlay-ui' id = 'home'>
+ 
+ 	<br>
+    <button  id="sell" onclick='sell()'>sell</button>
+    
+    <button  class='colorChange' id="shopBtn" onclick='openMenu("shop")'>Shop</button>
+    <div id='cashDiv'>
+    	<h2 id='cash'>$0</h2>
+    </div>
+ 
+ </div>
+  <div class='overlay-ui' id='shop'>
+  
+    <button  class='colorChange' id="close" onclick='openMenu("home")'>close</button>
+    <button  class='colorChange' id="reset" onclick='reset()'>Reset Progress</button>
+ <br>
+ <h1>Line: <span id='lineDist'>100</span> depth</h1>
+ 	<button id='upgradeLineBtn'class='line upgrade colorChange' onclick='upgradeLine()'>Upgrade Line $<span id='lineCost'>50</span></button>
+    <div id='cashDiv'>
+    	<h2 id='cash2'>$0</h2>
+    </div>
+    
+ 
+ </div>
+ </div>
 
 
  <script>
    const canvas = document.getElementById('canvas');
    const ctx = canvas.getContext('2d');
+   let money = loadData('money', 0)
+   
+   //anya 2850
+   let cashText = document.getElementById('cash');
    let cx = canvas.width
    let cy = canvas.height
-   let tall = 3700
+   let lineUpgradeId = loadData('line', 0)
+   //silas 3
+   
+   let lineCosts = [
+     {cost: 0, dist: 1000}, {cost: 50, dist: 1500}, 
+   {cost: 100, dist: 2000}, {cost: 200, dist: 2500}, 
+   {cost: 400, dist: 3000}, {cost: 800, dist: 3500}, 
+   {cost: 1200, dist: 4000}]
+   let tall = 4000
+   let deep = 4000
+   let lineDist = lineCosts[lineUpgradeId].dist
+   updateText(lineDist, "lineDist")
+   updateText(lineCosts[lineUpgradeId + 1].cost, 'lineCost')
+   let shopdeep = 200
     let scroll = 0
    let midscroll = 0
    let scrollProgress = 0
    let maxScroll = 0
    let liney = 0
    let linetarget = 0   
-         const fishTypes = [
-     { name: "Minnow",      minDepth: 900,  maxDepth: 1400, weight: 100,    size: 14, color: "#94a3b8", finColor: "#cbd5e1", speed: 4.2, type: "normal" },
-     { name: "Goldfish",    minDepth: 1000, maxDepth: 1650, weight: 50,     size: 18, color: "#fb923c", finColor: "#ea580c", speed: 3,   type: "normal" },
-     { name: "Clownfish",   minDepth: 1200, maxDepth: 1950, weight: 20,     size: 20, color: "#f97316", finColor: "#ffffff", speed: 4.0, type: "striped" },
-     { name: "Blue Tang",   minDepth: 1450, maxDepth: 2250, weight: 8,      size: 22, color: "#2563eb", finColor: "#facc15", speed: 4.6, type: "normal" },
-     { name: "Pufferfish",  minDepth: 1700, maxDepth: 2550, weight: 2.5,    size: 26, color: "#fde047", finColor: "#ca8a04", speed: 2.2, type: "puffer" },
-     { name: "Eel",         minDepth: 1950, maxDepth: 2850, weight: 0.7,    size: 32, color: "#4ade80", finColor: "#16a34a", speed: 4.4, type: "eel" },
-     { name: "Swordfish",   minDepth: 2200, maxDepth: 3100, weight: 0.15,   size: 35, color: "#38bdf8", finColor: "#0284c7", speed: 7.5, type: "sword" },
-     { name: "Shark",       minDepth: 2450, maxDepth: 3300, weight: 0.03,   size: 42, color: "#64748b", finColor: "#334155", speed: 4,   type: "shark" },
-     { name: "Giant Squid", minDepth: 2700, maxDepth: 3380, weight: 0.005,  size: 38, color: "#f43f5e", finColor: "#be123c", speed: 1.7, type: "squid" },
-     { name: "Anglerfish",  minDepth: 2950, maxDepth: 3380, weight: 0.0008, size: 34, color: "#581c87", finColor: "#fef08a", speed: 1.4, type: "angler" }
+   let dockLegs = 7
+   let coolers = ['small']
+   let inCooler = []
+            const fishTypes = [
+     { name: "Minnow",      minDepth: 900,  maxDepth: 1400, weight: 50,   size: 14, color: "#94a3b8", finColor: "#cbd5e1", speed: 4.2, type: "normal", cost: 1},
+     { name: "Goldfish",    minDepth: 1000, maxDepth: 1650, weight: 30,   size: 18, color: "#fb923c", finColor: "#ea580c", speed: 3,   type: "normal", cost: 2},
+     { name: "Clownfish",   minDepth: 1200, maxDepth: 1950, weight: 15,   size: 20, color: "#f97316", finColor: "#ffffff", speed: 4.0, type: "striped", cost: 3},
+     { name: "Blue Tang",   minDepth: 1450, maxDepth: 2250, weight: 7,    size: 22, color: "#2563eb", finColor: "#facc15", speed: 4.6, type: "normal", cost: 5},
+     { name: "Pufferfish",  minDepth: 1700, maxDepth: 2550, weight: 3,    size: 26, color: "#fde047", finColor: "#ca8a04", speed: 2.2, type: "puffer", cost: 7},
+     { name: "Eel",         minDepth: 1950, maxDepth: 2850, weight: 1.2,  size: 32, color: "#4ade80", finColor: "#16a34a", speed: 4.4, type: "eel", cost: 11},
+     { name: "Swordfish",   minDepth: 2200, maxDepth: 3100, weight: 0.3,  size: 35, color: "#38bdf8", finColor: "#0284c7", speed: 6.5, tyfpe: "sword", cost: 16},
+     { name: "Shark",       minDepth: 2450, maxDepth: 3300, weight: 0.10, size: 42, color: "#64748b", finColor: "#334155", speed: 4,   type: "shark", cost: 24},
+     { name: "Giant Squid", minDepth: 2700, maxDepth: 3380, weight: 0.05, size: 38, color: "#f43f5e", finColor: "#be123c", speed: 1.7, type: "squid", cost: 40},
+     { name: "Anglerfish",  minDepth: 2950, maxDepth: 3380, weight: 0.005, size: 34, color: "#581c87", finColor: "#fef08a", speed: 1.4, type: "angler", cost: 75}
    ];
 
 
@@ -63,6 +256,71 @@
    let caughtCount = 0;
    let lastCatchText = "";
    let lastCatchTimer = 0;
+   if (lineDist === deep) {
+    	
+    updateText('Maxed Out','upgradeLineBtn')
+      const upgradeLineBtn = document.getElementById("upgradeLineBtn");
+  
+  upgradeLineBtn.disabled = true;
+    }
+   function reset() {
+   	if (prompt('Type "reset" to reset all of your progress.') === "reset") {
+    	resetData()
+    }
+   }
+   function resetData() {
+   		money = 0
+        saveData('line', 0)
+        saveData('money', 0)
+        
+   lineUpgradeId = loadData('line', 0)
+   lineDist = lineCosts[lineUpgradeId].dist
+   updateText(lineDist, "lineDist")
+   updateCashText()
+   
+        updateText(lineCosts[lineUpgradeId + 1].cost, 'lineCost')
+        
+   }
+   function upgradeLine() {
+   
+   if (money >= lineCosts[lineUpgradeId + 1].cost && lineDist != deep) {
+    	lineUpgradeId++
+    	money -= lineCosts[lineUpgradeId].cost
+        lineDist = lineCosts[lineUpgradeId].dist
+        updateText(lineCosts[lineUpgradeId + 1].cost, 'lineCost')
+        updateText(lineDist, 'lineDist')
+        updateCashText()
+        saveData('line', lineUpgradeId)
+        
+   }
+    if (lineDist === deep) {
+    	
+    updateText('Maxed Out','upgradeLineBtn')
+      const upgradeLineBtn = document.getElementById("upgradeLineBtn");
+  
+  upgradeLineBtn.disabled = true;
+    }
+   }
+let menu = 'home';
+function updateText(text,  id) {
+	let textEl = document.getElementById(id);
+    textEl.textContent = text
+}
+	openMenu('home')
+
+function openMenu(menuIn = 'home') {
+  let currentEl;
+  menu = menuIn
+  
+  currentEl = document.getElementById('shop');
+  currentEl.style.display = menuIn === 'shop' ? 'block' : "none";
+  currentEl = document.getElementById('home');
+  currentEl.style.display = menuIn === 'home' ? 'flex' : "none";
+  
+}
+
+
+
 
    function spawnFish() {
      const baseDepth = Math.max(950, liney);
@@ -94,118 +352,168 @@
      };
    }
 
-
-   function update() {
-  
-     cx = canvas.width
-     cy = canvas.height
-    
-     //sky
-     ctx.clearRect(0, 0, cx, cy);
-     ctx.fillStyle = 'skyblue'
-     ctx.fillRect(0, 0, cx, 300);
-     ctx.fillStyle = 'white'
-     ctx.fillRect(0, 300, cx, 5);
-    
-     //dock
-     ctx.fillStyle = 'brown'
-     ctx.fillRect(1, 270, 10, 50);
-     ctx.fillRect(60, 270, 10, 50);
-     ctx.fillRect(120, 270, 10, 50);
-     ctx.fillRect(180, 270, 10, 50);
-     ctx.fillRect(0, 265, 200, 5);
-    
-     //player
-     ctx.beginPath()
-   ctx.lineWidth = 4;
-     ctx.fillStyle = 'red'
-     ctx.rect(100, 215, 50, 50);
-     ctx.fill()
-     ctx.stroke();
-    
-     //fishing rod
-     ctx.strokeStyle = 'green'
-     ctx.beginPath()
-     ctx.moveTo(135, 240);
-     ctx.lineTo(200, 120);
-     ctx.stroke();
-      
-      
-     
-     //I made a usefull function for drawing circles so that we can easaly do it in just one line
-     ctx.strokeStyle = 'black'
-     circle(170, 190, 7, true, false)
-    
-     circle(180, 170, 6, true, false)
-    
-     circle(190, 150, 5, true, false)
-    
-     circle(200, 130, 4, true, false)
-     drawDepth()
-
-     ctx.font = "bold 20px sans-serif";
-     ctx.fillStyle = "black";
-    // ctx.fillText("Caught: " + caughtCount, 240, 250);
-     if (lastCatchTimer > 0) {
-       lastCatchTimer--;
-       ctx.textAlign = "center";
-       ctx.fillText(lastCatchText, cx / 2, 280);
-       ctx.textAlign = "start";
-     }
-    
-      
-    linetarget = Math.max(120, midscroll);
-    liney += (linetarget - liney) / 5;
-    
-    //i switched to making lines so it we can make this easy
-	if (scroll > 305) {
-        if (!inWater) {
-          inWater = true;
-          if (!caughtFish) {
-            spawnFish();
-          }
+	function sell() {
+        
+        for (fish of inCooler) {
+        	money += fish.cost;
         }
-        updateFishes();
-
-    	ctx.strokeStyle = 'black';
-    	ctx.lineWidth = 10;
-    	ctx.beginPath();
-    	ctx.moveTo(200, 120);
-        ctx.lineTo(cx / 2, 305);
-    	ctx.lineTo(cx / 2, liney);
-    	ctx.stroke();
-        ctx.strokeStyle = 'white';
-        ctx.lineWidth = 7;
-        ctx.stroke()
-        
-        ctx.strokeStyle = 'black';
-    	ctx.lineWidth = 10;
-        circle(cx / 2, liney + 15, 20, true, false, 0.08, 1.62, false)
-        
-        ctx.strokeStyle = 'gray';
-    	ctx.lineWidth = 7;
-        circle(cx / 2, liney + 15, 20, true, false, 0.1, 1.6, false)
-        
-        ctx.strokeStyle = 'black';
-        
-        if (!caughtFish && activeFish && Math.abs(activeFish.x - (cx / 2)) < activeFish.size + 15 && Math.abs(activeFish.y - (liney + 15)) < activeFish.size + 15) {
-        	caughtFish = activeFish;
-        }
-    } else {
-        if (caughtFish) {
-          caughtCount++;
-          lastCatchText = "Caught a " + caughtFish.name + ' at ' +  Math.round(caughtFish.deep) + " Depth!";
-          lastCatchTimer = 180;
-          caughtFish = null;
-        }
-    	liney = 305
-        inWater = false;
-        activeFish = null;
+        inCooler = []
+        updateCashText()
     }
+    
+    updateCashText()
+    function updateCashText() {
+    	cashText.textContent = '$' + money
+        
+		updateText('$' + money,  'cash')
+        
+		updateText('$' + money,  'cash2')
+        saveData('money', money)
+    }
+    
+    
+function update() {
+//if (menu === 'shop') {
+	//if (tall != window.innerHeight - 5) {
+		//tall = window.innerHeight - 5
+    	//resize()
+//	} 
+//} else
+	if (tall != lineDist + 305 + window.innerHeight / 2) {
+		tall = lineDist + 305 + window.innerHeight / 2
+    	resize()
+	} 
+//}
 
+  cx = canvas.width;
+  cy = canvas.height;
+  ctx.clearRect(0, 0, cx, cy);
 
-     requestAnimationFrame(update);
-   }   function updateFishes() {
+  //sky
+  ctx.fillStyle = 'skyblue';
+  ctx.fillRect(0, 0, cx, 300);
+  ctx.fillStyle = 'white';
+  ctx.fillRect(0, 300, cx, 5);
+
+  let coolersWidth = 10;
+  for (let cooler of coolers) {
+    if (cooler === 'small') coolersWidth += 50;
+    if (cooler === 'mid') coolersWidth += 60;
+    if (cooler === 'big') coolersWidth += 80;
+  }
+
+  let dockWidth = Math.max(380, coolersWidth + 90);
+  let playerX = dockWidth - 80;
+  let offset = playerX - 300;
+
+  //dock
+  ctx.fillStyle = 'brown';
+  ctx.fillRect(1, 270, 10, 50);
+  for (let px = 60; px <= dockWidth - 10; px += 60) {
+    ctx.fillRect(px, 270, 10, 50);
+  }
+  ctx.fillRect(0, 265, dockWidth, 5);
+
+  //player
+  ctx.beginPath();
+  ctx.lineWidth = 4;
+  ctx.fillStyle = 'red';
+  ctx.rect(playerX, 215, 50, 50);
+  ctx.fill();
+  ctx.stroke();
+
+  //fishing rod
+  ctx.strokeStyle = 'green';
+  ctx.beginPath();
+  ctx.moveTo(335 + offset, 240);
+  ctx.lineTo(400 + offset, 120);
+  ctx.stroke();
+
+  //I made a usefull function for drawing circles so that we can easaly do it in just one line
+  ctx.strokeStyle = 'black';
+  circle(370 + offset, 190, 7, true, false);
+  circle(380 + offset, 170, 6, true, false);
+  circle(390 + offset, 150, 5, true, false);
+  circle(400 + offset, 130, 4, true, false);
+  drawDepth();
+
+  //fish coolers
+  let x = 10;
+  for (cooler of coolers) {
+    if (cooler === 'small') {
+      drawFishCooler(x, 225, 50, '#d9483b');
+      x += 50;
+    }
+    if (cooler === 'mid') {
+      drawFishCooler(x, 215, 60);
+      x += 60;
+    }
+    if (cooler === 'big') {
+      drawFishCooler(x, 199, 80, '#e6b83a');
+      x += 80;
+    }
+  }
+
+  ctx.font = "bold 20px sans-serif";
+  ctx.fillStyle = "black";
+  ctx.fillText("Caught: " + caughtCount, 240 + offset, 200);
+  if (lastCatchTimer > 0) {
+    lastCatchTimer--;
+    ctx.fillText(lastCatchText, 400 + offset, 280);
+  }
+
+  linetarget = Math.max(120, midscroll);
+  liney += (linetarget - liney) / 5;
+
+  //i switched to making lines so it we can make this easy
+  if (scroll > 305) {
+    if (!inWater) {
+      inWater = true;
+      if (!caughtFish) {
+        spawnFish();
+      }
+    }
+    updateFishes();
+    ctx.strokeStyle = 'black';
+    ctx.lineWidth = 10;
+    ctx.beginPath();
+    ctx.moveTo(200, 120);
+    ctx.lineTo(cx / 2, 305);
+    ctx.lineTo(cx / 2, liney);
+    ctx.stroke();
+
+    ctx.strokeStyle = 'white';
+    ctx.lineWidth = 7;
+    ctx.stroke();
+
+    ctx.strokeStyle = 'black';
+    ctx.lineWidth = 10;
+    circle(cx / 2, liney + 15, 20, true, false, 0.08, 1.62, false);
+
+    ctx.strokeStyle = 'gray';
+    ctx.lineWidth = 7;
+    circle(cx / 2, liney + 15, 20, true, false, 0.1, 1.6, false);
+
+    ctx.strokeStyle = 'black';
+    if (!caughtFish && activeFish && Math.abs(activeFish.x - (cx / 2)) < activeFish.size + 15 && Math.abs(activeFish.y - (liney + 15)) < activeFish.size + 15) {
+      caughtFish = activeFish;
+      inCooler.push(caughtFish);
+    }
+  } else {
+    if (caughtFish) {
+      caughtCount++;
+      lastCatchText = "Caught a " + caughtFish.name + ' at ' + Math.round(caughtFish.deep) + " Depth!";
+      lastCatchTimer = 180;
+      caughtFish = null;
+    }
+    liney = 305;
+    inWater = false;
+    activeFish = null;
+  }
+
+  requestAnimationFrame(update);
+}
+   function updateFishes() {
      if (caughtFish) {
        caughtFish.x = cx / 2;
        caughtFish.y = liney + 25;
@@ -395,7 +703,7 @@
   resize()
   window.addEventListener('resize', resize, { passive: true });
    function resize() {
-     canvas.width = window.innerWidth;
+     canvas.width = window.innerWidth - 7;
      canvas.height = tall;
    }
   
@@ -430,8 +738,86 @@ updateScroll();
        }
      }
    });
+function drawFishCooler(x, y, size = 50, color = '#1e6b8c') {
+  const scale = size / 50;
+
+  ctx.save();
+  ctx.translate(x, y);
+  ctx.scale(scale, scale);
+
+  ctx.fillStyle = '#dce8ee';
+  ctx.strokeStyle = '#13465c';
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.roundRect(7, 2, 36, 12, 3);
+  ctx.fill();
+  ctx.stroke();
+
+  ctx.fillStyle = '#bce6f7';
+  ctx.fillRect(8, 12, 34, 8);
+
+  ctx.save();
+  ctx.translate(25, 13);
+  ctx.rotate(-0.15);
+  ctx.fillStyle = '#4a8fa8';
+  ctx.beginPath();
+  ctx.ellipse(0, 0, 11, 5, 0, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.beginPath();
+  ctx.moveTo(-10, 0);
+  ctx.lineTo(-16, -5);
+  ctx.lineTo(-16, 5);
+  ctx.closePath();
+  ctx.fill();
+  ctx.restore();
+
+  ctx.fillStyle = '#dce8ee';
+  ctx.fillRect(2, 20, 4, 9);
+  ctx.strokeRect(2, 20, 4, 9);
+  ctx.fillRect(44, 20, 4, 9);
+  ctx.strokeRect(44, 20, 4, 9);
+
+  ctx.fillStyle = color;
+  ctx.beginPath();
+  ctx.roundRect(5, 17, 40, 24, 4);
+  ctx.fill();
+  ctx.stroke();
+
+  ctx.fillStyle = '#ffffff';
+  ctx.beginPath();
+  ctx.roundRect(4, 15, 42, 4, 2);
+  ctx.fill();
+  ctx.stroke();
+
+  ctx.fillStyle = '#13465c';
+  ctx.fillRect(12, 17, 3, 6);
+  ctx.fillRect(35, 17, 3, 6);
+
+  ctx.restore();
+}
+
+function saveData(key, data) {
+  try {
+    const jsonData = JSON.stringify(data);
+    localStorage.setItem(key, jsonData);
+  } catch (error) {
+    console.error("Failed to save data:", error);
+  }
+}
+
+function loadData(key, defaultValue = null) {
+  try {
+    const savedData = localStorage.getItem(key);
+    return savedData !== null ? JSON.parse(savedData) : defaultValue;
+  } catch (error) {
+    console.error("Failed to load data:", error);
+    return defaultValue;
+  }
+}
+
 
  </script>
 </body>
 </html>
+
 
